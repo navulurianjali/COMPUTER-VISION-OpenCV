@@ -1,0 +1,12 @@
+import cv2
+
+# Read image
+img = cv2.imread("C:\Program Files\OpenCV\img1.png", 0)  # 0 = grayscale
+
+# Apply Canny Edge Detection
+edges = cv2.Canny(img, 100, 200)
+
+# Show result
+cv2.imshow("Canny Edge Detection", edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
