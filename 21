@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+img = cv2.imread(r'C:\Program Files\OpenCV\img1.png', 0)
+mx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])
+my = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+gx = cv2.filter2D(img, -1, mx)
+gy = cv2.filter2D(img, -1, my)
+sharpened = cv2.addWeighted(gx, 0.5, gy, 0.5, 0)
+
+cv2.imshow('Gradient Sharpening', sharpened)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
